@@ -55,11 +55,6 @@ def signin(request):
     return render(request, 'login.html', context)
 
 
-
-
-
-
-
 @login_required(login_url='signin')
 def createresume(request):
     try:
