@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>iPortfolio Bootstrap Template - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{%static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{%static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{%static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{%static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{%static 'assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: iPortfolio - v3.10.0
+  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Mobile nav toggle button ======= -->
+  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+  
+  <!-- ======= Header ======= -->
+  <header id="header">
+{% for personalinfo in template %}
+    <div class="d-flex flex-column">
+        <div class="profile">       
+            <!-- <h1 class="text-light"><a href="{% url 'home' %}">Welcome {{user.username}} </a></h1>    -->
+        </div>
+      <nav id="navbar" class="nav-menu navbar">
+        <ul>           
+        </ul>
+      </nav><!-- .nav-menu -->
+    </div>
+  </header><!-- End Header -->
+
+
+
+  <main id="main">
+
+
+ <!-- ======= Resume Section ======= -->
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+  <link href="{%static 'css2/aos.css?ver=1.1.0' %}" rel="stylesheet">
+  <link href="{%static 'css2/bootstrap.min.css?ver=1.1.0' %}" rel="stylesheet">
+  <link href="{%static 'css2/main.css?ver=1.1.0' %}" rel="stylesheet">
+  <noscript>
+    <style type="text/css">
+      [data-aos] {
+          opacity: 1 !important;
+          transform: translate(0) scale(1) !important;
+      }
+    </style>
+  </noscript>
+</head>
+<body id="top">
+  <div class="page-content">
+    <div>
+<div class="section" id="about">
+<div class="container">
+  <div class="card" data-aos="fade-up" data-aos-offset="10">
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <div class="card-body">
+          <div class="col-sm-8">{{personalinfo.name}}</strong></div>
+          <div class="h4 mt-0 title">About</strong></div>
+          <p>{{personalinfo.about}}</p>
+          <p><a href="https://templateflip.com/templates/creative-cv/" target="_blank"></a></p>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12">
+        <div class="card-body">
+          <div class="h4 mt-0 title">Basic Information</div>
+          <div class="row">
+            <div class="col-sm-4"><strong class="text-uppercase">Name:</strong></div>
+            <div class="col-sm-8">{{personalinfo.name}}</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
+            <div class="col-sm-8">{{user.email}}</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
+            <div class="col-sm-8">{{personalinfo.phone_number}}</div>
+          </div>
+          <div class="row mt-3">
+            <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
+            <div class="col-sm-8">{{personalinfo.address}}</div>
+          </div>
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="section" id="experience">
+<div class="container cc-experience">
+  <div class="h4 text-center mb-4 title">Work Experience</strong></div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body cc-experience-header">
+          <p>{{personalinfo.start_date_of_current_job }} - Present</p>
+          <div class="h5">{{personalinfo.location_of_current_job}}</div>
+        </div>
+      </div>
+      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body">
+          <div class="h5">{{note.name_of_current_job}}</div>
+          <p>{{personalinfo.description_of_current_job}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body cc-experience-header">
+          <p>{{personalinfo.start_year_of_previous_job }}</p>
+          <div class="h5">{{personalinfo.location_of_previous_job}}</div>
+        </div>
+      </div>
+      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body">
+          <div class="h5">{{personalinfo.name_of_previous_job}}</div>
+          <p>{{personalinfo.description_of_previous_job}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="section">
+<div class="container cc-education">
+  <div class="h4 text-center mb-4 title">Education</strong></div>
+  <div class="card">
+    <div class="row">
+      <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body cc-education-header">
+          <p>{{personalinfo.school}}</p>        
+        </div>
+      </div>
+      <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
+        <div class="card-body">
+          <div class="h5">{{personalinfo.degree}}</div>
+          <p class="category">{{personalinfo.year}}</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endfor%}
+
+  </div>
+  <script src="{%static 'js2/core/jquery.3.2.1.min.js?ver=1.1.0' %}"></script>
+  <script src="{%static 'js2/core/popper.min.js?ver=1.1.0' %}"></script>
+  <script src="{%static 'js2/core/bootstrap.min.js?ver=1.1.0' %}"></script>
+  <script src="{%static 'js2/now-ui-kit.js?ver=1.1.0' %}"></script>
+  <script src="{%static 'js2/aos.js?ver=1.1.0' %}"></script>
+  <script src="{%static 'scripts2/main.js?ver=1.1.0' %}"></script>
+ 
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{%static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{%static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{%static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/typed.js/typed.min.js' %}"></script>
+  <script src="{%static 'assets/vendor/waypoints/noframework.waypoints.js' %}"></script>
+  <script src="{%static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{%static 'assets/js/main.js' %}"></script>
+
+</body>
+
+</html>
+

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5 text-center">
+<style>
+    h5{
+        color: red;
+    }
+</style>
+
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}
+<form action="" method="POST">
+    {%csrf_token%}
+    <h1 class="text-center">Register</h1>
+    {{form_name.as_p}}
+    <input type="submit" class="btn btn-primary" value="Get Stated">
+</form>
+
+
+</div>
+
+{% endblock %}
+
+
+
