@@ -16,7 +16,7 @@ Resume Pro is a web application built with Django that allows users to create pr
 
 To run the Resume Builder locally, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/neo77-cyber/ Resumewizardz.git`
+1. Clone the repository: `git clone https://github.com/neo77-cyber/ Resume-Pro.git`
 2. Navigate to the project directory: `cd resumewizards`
 3. Create a virtual environment: `pipenv shell`
 5. Install dependencies: `pipenv install -r requirements.txt`
