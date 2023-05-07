@@ -1,8 +1,9 @@
-# Resumewizardz
+
+#Resume Pro
 
 
 
-Resume wizardz is a web application built with Django that allows users to create professional resumes quickly and easily. It provides a user-friendly interface and customizable templates to help users showcase their skills, experience, and qualifications effectively.
+Resume Pro is a web application built with Django that allows users to create professional resumes quickly and easily. It provides a user-friendly interface and customizable templates to help users showcase their skills, experience, and qualifications effectively.
 
 ## Features
 
