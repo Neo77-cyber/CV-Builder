@@ -11,10 +11,6 @@ class UserForm(UserCreationForm):
         model = User
         fields = ['username']
 
-        widgets = {
-                'username': forms.TextInput(attrs = {'class': 'form-control'}),          
-            }
-
 class PersonalInfoForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo

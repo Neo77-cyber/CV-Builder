@@ -69,7 +69,7 @@ def createresume(request):
             form.save()
             return redirect('cvtemplate')
     else:
-        form = PersonalInfoForm(instance=personal_info)
+        form = PersonalInfoForm()
 
     return render(request, 'createresume.html', {'form': form})
 
@@ -96,3 +96,6 @@ def cvtemplate(request):
 def logout(request):
     auth.logout(request)
     return redirect('signin')
+
+
+

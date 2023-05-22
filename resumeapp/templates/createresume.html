@@ -54,9 +54,11 @@
       </div>
 
       <nav id="navbar" class="nav-menu navbar">
-        <ul>    
+        <ul> 
+          {% if form.is_valid %}   
           <li><a href="{%url 'cvtemplate' %}" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>My
                 CV</span></a></li>
+          {% endif %}
           <li><a href="{%url 'logout' %}" class="nav-link scrollto active"><i class="bx bx-home"></i>
               <span>Logout</span></a></li>
         </ul>
