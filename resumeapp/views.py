@@ -1,17 +1,23 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import auth
 from django.contrib import messages
-from .forms import UserForm
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import PersonalInfoForm
+from .forms import PersonalInfoForm, UserForm
 from .models import PersonalInfo
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, FileResponse
 from django.template.loader import get_template
-from django.views import View
-from xhtml2pdf import pisa
 import io
+from rest_framework.response import Response
+from .serializers import UserRegistrationSerializer, PersonalInfoSerializer, UserAuthenticationSerializer
+from rest_framework.views import APIView
+from rest_framework.authtoken.models import Token
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework import generics
+from rest_framework.decorators import api_view
+from reportlab.pdfgen import canvas
 
 # Create your views here.
 
@@ -98,4 +104,66 @@ def logout(request):
     return redirect('signin')
 
 
+class UserRegistrationView(generics.CreateAPIView):
+    serializer_class = UserRegistrationSerializer
+
+    def post(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.save()
+        return Response({"detail": "User registered successfully."}, status=201)
+
+
+class UserAuthenticationView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        serializer = UserAuthenticationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        user = serializer.validated_data
+        login(request, user)
+
+        
+        token, created = Token.objects.get_or_create(user=user)
+
+        return Response({"detail": "User logged in successfully.", "token": token.key})
+    
+
+
+class ResumeCreateView(generics.CreateAPIView):
+    permission_classes = [IsAuthenticated]
+    queryset = PersonalInfo.objects.all()
+    serializer_class = PersonalInfoSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(username=self.request.user)
+
+
+@api_view(['GET'])
+def download_resume(request):
+    resume = PersonalInfo.objects.get(username=request.user)
+    print(resume)
+
+    
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer)
+
+    
+    p.drawString(100, 100, resume.name)
+    p.drawString(100, 150, resume.summary)
+    
+
+    p.showPage()
+    p.save()
+
+    buffer.seek(0)
+
+    
+    response = FileResponse(buffer, as_attachment=True, filename='resume.pdf')
+    return response
+
+
+
+    
 
