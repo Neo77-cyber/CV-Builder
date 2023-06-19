@@ -23,6 +23,7 @@ To run the Resume Builder locally, follow these steps:
 6. Apply database migrations: `python manage.py migrate`
 7. Start the development server: `python manage.py runserver`
 8. Access the app in your browser at `http://localhost:8000`
+9. Access the APIendpoints at `http://localhost:8000/api/register/`, `http://localhost:8000/api/login/`, `http://localhost:8000/api/createsume/`, `http://localhost:8000/api/downloadresume/`
 
 ## Technologies Used
 
